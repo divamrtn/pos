@@ -1,0 +1,426 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eeeeee;
+  color: #333;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  background: #f8f8f8;
+}
+
+/* HEADER */
+.topbar {
+  height: 42px;
+  background: #eeeeee;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.status {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+}
+
+/* INPUT MEMBER */
+.input-area {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: #fafafa;
+}
+
+.btn-hijau {
+  width: 340px;
+  background: #5dae3d;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  text-align: left;
+  border-radius: 4px;
+}
+
+.btn-hijau b {
+  background: #f05b3f;
+  padding: 8px 12px;
+  border-radius: 50%;
+  float: right;
+}
+
+.member-box {
+  flex: 1;
+  display: flex;
+  border: 2px solid #e25b31;
+  border-radius: 5px;
+  overflow: hidden;
+  background: white;
+}
+
+.member-box label {
+  background: #e85b25;
+  color: white;
+  padding: 16px 28px;
+  font-weight: bold;
+}
+
+.member-box input {
+  border: none;
+  flex: 1;
+  padding: 0 15px;
+  font-size: 15px;
+  outline: none;
+}
+
+/* LAYOUT UTAMA */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 290px;
+  gap: 10px;
+  padding: 0 10px 10px 10px;
+}
+
+.transaksi {
+  background: white;
+  min-height: 520px;
+  border: 1px solid #ddd;
+}
+
+.scan-box {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.scan-box input {
+  flex: 1;
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid #bbb;
+}
+
+.scan-box button {
+  width: 130px;
+  border: none;
+  background: #e84d3d;
+  color: white;
+  font-weight: bold;
+}
+
+/* TABEL */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead {
+  background: #f0f0f0;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th:nth-child(1), td:nth-child(1),
+th:nth-child(2), td:nth-child(2),
+th:nth-child(5), td:nth-child(5),
+th:nth-child(7), td:nth-child(7) {
+  text-align: center;
+}
+
+.kosong {
+  text-align: center;
+  color: #999;
+  padding: 80px;
+}
+
+.qty-btn {
+  padding: 5px 9px;
+  border: none;
+  margin: 2px;
+  background: #ddd;
+  cursor: pointer;
+}
+
+.hapus {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.catatan {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 230px;
+  border-top: 1px solid #ddd;
+}
+
+.catatan textarea {
+  height: 90px;
+  border: none;
+  border-right: 1px solid #ddd;
+  resize: none;
+  padding: 10px;
+  font-family: Arial;
+}
+
+/* PANEL TOTAL */
+.panel-total {
+  background: rgba(205, 70, 35, 0.90);
+  color: white;
+  min-height: 520px;
+  padding: 15px;
+}
+
+.total-box {
+  min-height: 130px;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+.total-box p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.total-box h1 {
+  font-size: 70px;
+  text-align: right;
+  margin: 10px 0;
+}
+
+.sponsor {
+  min-height: 120px;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+.bar-promo {
+  height: 16px;
+  background: #44c078;
+  margin: 10px 0;
+}
+
+.ringkasan {
+  min-height: 120px;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+.bayar-box label {
+  display: block;
+  margin-top: 8px;
+}
+
+.bayar-box input,
+.bayar-box select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  margin-top: 5px;
+  border-radius: 3px;
+}
+
+.btn-bayar {
+  width: 100%;
+  margin-top: 15px;
+  padding: 16px;
+  border: none;
+  background: #f06a43;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* MENU BAWAH */
+.bottom-menu {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  background: #f2f2f2;
+  border-top: 1px solid #ddd;
+}
+
+.bottom-menu button {
+  min-height: 70px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.bottom-menu button:hover {
+  background: #e8e8e8;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: 300px;
+  max-width: 92vw;
+  background: white;
+  color: #222;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.modal-content h2 {
+  margin: 0 0 8px 0;
+  text-align: center;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+}
+
+#isiStruk {
+  width: 100%;
+}
+
+#isiStruk p {
+  margin: 4px 0;
+}
+
+#isiStruk hr {
+  border: none;
+  border-top: 1px dashed #777;
+  margin: 6px 0;
+}
+
+.receipt-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.receipt-actions button,
+.modal-content button {
+  background: #e85b25;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-total {
+    min-height: auto;
+  }
+
+  .bottom-menu {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .input-area {
+    flex-direction: column;
+  }
+
+  .btn-hijau {
+    width: 100%;
+  }
+}
+
+
+/* TAMBAHAN MODE APLIKASI */
+button:focus, input:focus, select:focus, textarea:focus {
+  outline: 3px solid rgba(232, 91, 37, 0.25);
+  outline-offset: 2px;
+}
+
+@media print {
+  @page {
+    size: 58mm auto;
+    margin: 3mm;
+  }
+
+  html,
+  body {
+    width: 58mm;
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  #modalStruk,
+  #modalStruk * {
+    visibility: visible;
+  }
+
+  #modalStruk {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 58mm;
+    height: auto;
+    display: block !important;
+    background: white;
+  }
+
+  .modal-content {
+    width: 58mm;
+    max-width: 58mm;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+    font-size: 10.5px;
+    line-height: 1.2;
+  }
+
+  .modal-content h2 {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  #isiStruk p {
+    margin: 2px 0;
+  }
+
+  #isiStruk hr {
+    margin: 4px 0;
+  }
+
+  .receipt-actions,
+  .modal-content button {
+    display: none !important;
+  }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POS Kasir Minimarket</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#e85b25">
+  <meta name="description" content="Aplikasi POS kasir minimarket sederhana berbasis HTML, CSS, dan JavaScript.">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+</head>
+<body>
+  
+  <div class="app">
+    <!-- BAGIAN ATAS -->
+    <header class="topbar">
+      <div class="status">
+        <span>📶</span>
+        <span>👤 KASIR: MAHASISWA</span>
+        <span>🧾 555-1404YDX2</span>
+        <span id="tanggal">-</span>
+        <span>🏪 POS</span>
+      </div>
+    </header>
+
+    <!-- BAR INPUT -->
+    <section class="input-area">
+      <button class="btn-hijau">Cek Pesanan Ecommerce <b>29</b></button>
+
+      <div class="member-box">
+        <label>Member</label>
+        <input type="text" id="memberInput" placeholder="Nomor telepon atau scan kartu">
+      </div>
+    </section>
+
+    <main class="main-layout">
+      <!-- KIRI: TRANSAKSI -->
+      <section class="transaksi">
+        <div class="scan-box">
+          <input type="text" id="kodeBarang" placeholder="Scan / input barcode atau PLU barang">
+          <button onclick="tambahBarang()">LIST PLU</button>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Menu</th>
+              <th>No.</th>
+              <th>PLU / Nama Barang</th>
+              <th>Harga (Rp)</th>
+              <th>QTY</th>
+              <th>Total</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="listBelanja">
+            <tr>
+              <td colspan="7" class="kosong">Belum ada barang yang dimasukkan</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="catatan">
+          <textarea id="catatan" placeholder="Catatan transaksi / info tambahan"></textarea>
+          <textarea readonly id="infoPromo" placeholder="Info promo akan muncul di sini"></textarea>
+        </div>
+      </section>
+
+      <!-- KANAN: TOTAL DAN PEMBAYARAN -->
+      <aside class="panel-total">
+        <div class="total-box">
+          <p>Total RP</p>
+          <h1 id="grandTotal">0</h1>
+        </div>
+
+        <div class="sponsor">
+          <p>Item Sponsor :</p>
+          <div class="bar-promo"></div>
+          <small>Total 0 Item Sponsor</small>
+        </div>
+
+        <div class="ringkasan">
+          <h4>Ringkasan Promo</h4>
+          <p id="ringkasanPromo">-</p>
+        </div>
+
+        <div class="bayar-box">
+          <label>Uang Bayar</label>
+          <input type="number" id="uangBayar" placeholder="Masukkan uang bayar">
+
+          <label>Metode Bayar</label>
+          <select id="metodeBayar">
+            <option value="Tunai">Tunai</option>
+            <option value="Debit">Debit</option>
+            <option value="QRIS">QRIS</option>
+            <option value="E-Wallet">E-Wallet</option>
+          </select>
+
+          <button class="btn-bayar" onclick="prosesBayar()">PILIH PEMBAYARAN →</button>
+        </div>
+      </aside>
+    </main>
+
+    <!-- MENU BAWAH -->
+    <nav class="bottom-menu">
+      <button onclick="alert('Menu E-trans belum dibuat')">💳<br>E-trans</button>
+      <button onclick="inputBarangManual()">🛒<br>Input KP</button>
+      <button onclick="confirm('Klik OK untuk simpan transaksi pending. Klik Cancel untuk buka transaksi pending.') ? pendingTransaksi() : bukaPendingTransaksi()">⌛<br>Pending</button>
+      <button onclick="reprintStruk()">🖨️<br>Reprint</button>
+      <button onclick="bukaKalkulator()">🧮<br>Kalkulator</button>
+      <button onclick="alert('Jenis transaksi: Penjualan reguler')">🏪<br>Jenis Transaksi</button>
+      <button onclick="confirm('Klik OK untuk lihat laporan. Klik Cancel untuk ekspor CSV.') ? laporanSales() : exportLaporanCSV()">📄<br>Lap. Sales</button>
+      <button onclick="alert('Menu non commerce')">🛻<br>Non Commerce</button>
+      <button onclick="resetTransaksi()">🔲<br>Lainnya</button>
+    </nav>
+  </div>
+
+  <!-- POPUP STRUK -->
+  <div class="modal" id="modalStruk">
+    <div class="modal-content">
+      <h2>Struk Transaksi</h2>
+      <div id="isiStruk"></div>
+      <div class="receipt-actions"><button onclick="window.print()">Cetak</button><button onclick="tutupModal()">Tutup</button></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./service-worker.js').catch(function () {
+          console.log('Service worker belum aktif. Jalankan via localhost agar fitur install aplikasi aktif.');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
